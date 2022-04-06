@@ -69,7 +69,7 @@ public class UserInfoController {
 	 @GetMapping(value = "/getToken")
 	 public Result<UserInfo> getToken(String id,HttpServletRequest req) {
 		 UserInfo info = userInfoService.selectOne(id);
-		 // 生成api token
+		 // 生成api2 token
 		 String token = JwtUtil.signVer2(info.getId(), "123456");
 		 // 设置token缓存有效时间
 		 redisUtil.set(CommonConstant.PREFIX_USER_TOKEN + token, token);
